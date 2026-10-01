@@ -1,0 +1,327 @@
+/* =========================
+   SOBRE MÍ
+========================= */
+
+.about-section {
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+
+    padding: 120px 24px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.about-header {
+    max-width: 700px;
+
+    margin-bottom: 60px;
+}
+
+.section-label {
+    margin: 0 0 16px;
+
+    color: var(--accent);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+}
+
+.about-header h2 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: clamp(2.4rem, 5vw, 4rem);
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+
+
+}
+
+.about-header h2 span {
+    color: var(--accent);
+    background: linear-gradient(
+        90deg,
+        var(--accent-secondary),
+        var(--accent),
+        var(--accent-violet)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.about-content {
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   DESCRIPCIÓN
+========================= */
+
+.about-description {
+    max-width: 680px;
+}
+
+.about-description p {
+    margin: 0 0 22px;
+
+    color: var(--text-secondary);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+.about-description p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.about-visual {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 380px);
+
+    aspect-ratio: 1 / 1;
+}
+
+.about-avatar {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 18px rgba(22, 139, 255, 0.12));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.avatar-wrapper:hover .about-avatar {
+    transform: translateY(-5px);
+
+    filter:
+        drop-shadow(0 0 24px rgba(22, 139, 255, 0.2));
+}
+
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.about-info {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 70px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.about-card {
+    padding: 28px;
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.about-card:hover {
+    border-color: var(--accent);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.about-card-label {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--accent-secondary);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.about-card h3 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 1.15rem;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.about-card p {
+    margin: 10px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.85rem;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   AÑO
+========================= */
+
+.about-card-year {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-description {
+        max-width: 700px;
+    }
+
+    .about-visual {
+        order: -1;
+    }
+
+    .avatar-wrapper {
+        width: min(70vw, 360px);
+    }
+
+    .about-info {
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .about-section {
+        padding: 90px 20px;
+    }
+
+    .about-header {
+        margin-bottom: 40px;
+    }
+
+    .about-header h2 {
+        font-size: clamp(
+            2.3rem,
+            11vw,
+            3.2rem
+        );
+    }
+
+    .about-description p {
+        font-size: 0.95rem;
+    }
+
+    .avatar-wrapper {
+        width: min(80vw, 300px);
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+}

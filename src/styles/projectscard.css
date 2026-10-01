@@ -1,0 +1,404 @@
+/* ================================
+   PROJECT CARD
+================================ */
+
+.project-card {
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.4fr)
+        minmax(320px, 0.6fr);
+
+    min-height: 460px;
+
+    overflow: hidden;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 18px 45px rgba(22, 139, 255, 0.1);
+}
+
+
+/* ================================
+   IMAGEN
+================================ */
+
+.project-image {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+
+    overflow: hidden;
+
+    background: var(--bg-secondary);
+}
+
+.project-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 70%,
+            var(--bg-card) 100%
+        );
+
+    pointer-events: none;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.015);
+}
+
+
+/* ================================
+   TARJETA INVERTIDA
+================================ */
+
+.project-card-reverse {
+    grid-template-columns:
+        minmax(320px, 0.6fr)
+        minmax(0, 1.4fr);
+}
+
+.project-card-reverse .project-image {
+    grid-column: 2;
+}
+
+.project-card-reverse .project-content {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.project-card-reverse .project-image::after {
+    background:
+        linear-gradient(
+            270deg,
+            transparent 70%,
+            var(--bg-card) 100%
+        );
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.project-content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 55px 50px;
+}
+
+
+/* ================================
+   PROJECT NUMBER
+================================ */
+
+.project-number {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent-secondary);
+
+    font-size: 0.72rem;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+}
+
+
+/* ================================
+   TITLE
+================================ */
+
+.project-title {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 700;
+
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+
+/* ================================
+   DESCRIPTION
+================================ */
+
+.project-description {
+    margin: 22px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+
+/* ================================
+   TECHNOLOGIES
+================================ */
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    column-gap: 14px;
+    row-gap: 10px;
+
+    margin-top: 28px;
+}
+
+.project-technology {
+   position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 2px 0;
+
+    color: var(--text-secondary);
+
+    font-size: 0.84rem;
+    font-weight: 500;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+/* Separador entre tecnologías */
+
+.project-technology:not(:last-child)::after {
+    content: "·";
+
+    position: absolute;
+
+    right: -10px;
+
+    color: var(--border);
+
+    font-size: 1rem;
+}
+
+
+.project-technology svg {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    color: var(--accent) !important;
+    fill: var(--accent) !important;
+}
+
+
+.project-technology:hover {
+    color: var(--text-primary);
+
+    transform: translateY(-1px);
+}
+
+
+.project-technology:hover svg {
+      color: var(--accent-hover) !important;
+    fill: var(--accent-hover) !important;
+}
+
+
+/* ================================
+   ACTIONS
+================================ */
+
+.project-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 90px;
+    height: 42px;
+
+    padding: 0 18px;
+
+    color: var(--text-primary);
+    background: transparent;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    font-size: 0.82rem;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.project-button:hover {
+    color: var(--text-primary);
+
+    background: var(--bg-secondary);
+    border-color: var(--accent);
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1000px) {
+
+    .project-card,
+    .project-card-reverse {
+        display: flex;
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+    .project-image,
+    .project-card-reverse .project-image {
+        order: 1;
+
+        width: 100%;
+        height: 320px;
+        min-height: 320px;
+    }
+
+    .project-content,
+    .project-card-reverse .project-content {
+        order: 2;
+
+        width: 100%;
+
+        padding: 35px;
+    }
+
+    .project-image::after,
+    .project-card-reverse .project-image::after {
+        background:
+            linear-gradient(
+                180deg,
+                transparent 55%,
+                var(--bg-card) 100%
+            );
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .project-card,
+    .project-card-reverse {
+        border-radius: 18px;
+    }
+
+    .project-image,
+    .project-card-reverse .project-image {
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .project-content,
+    .project-card-reverse .project-content {
+        padding: 28px 24px 30px;
+    }
+
+    .project-title {
+        font-size: 1.7rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .project-technologies {
+        column-gap: 12px;
+        row-gap: 9px;
+
+        margin-top: 24px;
+    }
+
+    .project-technology {
+        font-size: 0.78rem;
+    }
+
+    .project-technology svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .project-actions {
+        margin-top: 26px;
+    }
+
+    .project-button {
+        min-width: 95px;
+    }
+}
