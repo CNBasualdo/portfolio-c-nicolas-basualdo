@@ -1,5 +1,5 @@
 import "../styles/hero.css";
-import ImgPrinc from "../media/Img/fotoCv.png";
+import ImgPrinc from "../media/Img/fotoCv.webp";
 import cv from "../media/archivos/CV-CNicolas-Basualdo.pdf"
 
 

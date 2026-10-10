@@ -1,5 +1,5 @@
 import "../styles/logo.css";
-import ImgIcon from "../media/icon/LogoSinFondo.png";
+import ImgIcon from "../media/icon/Logo.webp";
 
 function Logo() {
     return (

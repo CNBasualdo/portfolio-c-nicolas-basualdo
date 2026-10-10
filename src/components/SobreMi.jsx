@@ -1,5 +1,5 @@
 import "../styles/sobreMi.css";
-import AvatarDev from "../media/Img/avatarPrincipal.png";
+import AvatarDev from "../media/Img/avatarPrincipal.webp";
 
 function SobreMi() {
     return (
