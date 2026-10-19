@@ -1,15 +1,13 @@
+
 /* =========================
    SOBRE MÍ
 ========================= */
 
 .about-section {
     max-width: var(--max-width);
-
     margin: 0 auto;
-
     padding: 120px 24px;
 }
-
 
 /* =========================
    HEADER
@@ -17,37 +15,25 @@
 
 .about-header {
     max-width: 700px;
-
     margin-bottom: 60px;
 }
 
 .section-label {
     margin: 0 0 16px;
-
     color: var(--accent);
-
     font-size: 0.8rem;
     font-weight: 700;
-
     letter-spacing: 0.18em;
-
     text-transform: uppercase;
 }
 
 .about-header h2 {
     margin: 0;
-
     color: var(--text-primary);
-
     font-size: clamp(2.4rem, 5vw, 4rem);
-
     font-weight: 800;
-
     line-height: 1;
-
     letter-spacing: -0.045em;
-
-
 }
 
 .about-header h2 span {
@@ -58,13 +44,10 @@
         var(--accent),
         var(--accent-violet)
     );
-
     -webkit-background-clip: text;
     background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
-
 
 /* =========================
    CONTENIDO
@@ -72,14 +55,10 @@
 
 .about-content {
     display: grid;
-
     grid-template-columns: 1fr 0.8fr;
-
     gap: 80px;
-
     align-items: center;
 }
-
 
 /* =========================
    DESCRIPCIÓN
@@ -91,11 +70,8 @@
 
 .about-description p {
     margin: 0 0 22px;
-
     color: var(--text-secondary);
-
     font-size: 1rem;
-
     line-height: 1.8;
 }
 
@@ -103,54 +79,101 @@
     margin-bottom: 0;
 }
 
-
 /* =========================
-   AVATAR
+   AVATAR Y ANIMACIÓN
 ========================= */
 
 .about-visual {
     display: flex;
-
     justify-content: center;
     align-items: center;
 }
 
-.avatar-wrapper {
+.about-visual .avatar-wrapper {
     position: relative;
-
+    isolation: isolate;
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     width: min(100%, 380px);
-
     aspect-ratio: 1 / 1;
+
+    
 }
+
+/* Halo luminoso pulsante */
+
+.about-visual .avatar-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: 5%;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+
+    background: radial-gradient(
+        circle,
+        rgba(24, 213, 245, 0.3) 0%,
+        rgba(22, 139, 255, 0.24) 40%,
+        rgba(105, 71, 255, 0.2) 65%,
+        transparent 75%
+    );
+
+    opacity: 1;
+}
+
+/* Movimiento vertical */
+
+@keyframes avatar-flotacion {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Expansión y contracción del halo */
+
+@keyframes avatar-halo {
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+        filter: blur(12px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+        filter: blur(35px);
+    }
+}
+
+/* Imagen del avatar */
 
 .about-avatar {
+    position: relative;
+    z-index: 1;
     display: block;
-
     width: 100%;
     height: 100%;
-
     object-fit: contain;
 
-    filter:
-        drop-shadow(0 0 18px rgba(22, 139, 255, 0.12));
+    filter: drop-shadow(
+        0 0 18px rgba(22, 139, 255, 0.2)
+    );
 
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
+    transition: filter 0.3s ease;
 }
 
-.avatar-wrapper:hover .about-avatar {
-    transform: translateY(-5px);
+/* Brillo adicional al pasar el cursor */
 
+.about-visual .avatar-wrapper:hover .about-avatar {
     filter:
-        drop-shadow(0 0 24px rgba(22, 139, 255, 0.2));
+        drop-shadow(0 0 24px rgba(24, 213, 245, 0.4))
+        drop-shadow(0 0 35px rgba(22, 139, 255, 0.25));
 }
-
 
 /* =========================
    INFORMACIÓN
@@ -158,26 +181,19 @@
 
 .about-info {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 16px;
-
     margin-top: 70px;
 }
 
-
 /* =========================
-   CARDS
+   TARJETAS
 ========================= */
 
 .about-card {
     padding: 28px;
-
     background: var(--bg-card);
-
     border: 1px solid var(--border);
-
     border-radius: 14px;
 
     transition:
@@ -187,88 +203,56 @@
 
 .about-card:hover {
     border-color: var(--accent);
-
     transform: translateY(-3px);
 }
 
-
-/* =========================
-   LABEL
-========================= */
+/* Etiqueta de tarjeta */
 
 .about-card-label {
     display: block;
-
     margin-bottom: 14px;
-
     color: var(--accent-secondary);
-
     font-size: 0.7rem;
-
     font-weight: 700;
-
     letter-spacing: 0.16em;
 }
 
-
-/* =========================
-   TÍTULO
-========================= */
+/* Título de tarjeta */
 
 .about-card h3 {
     margin: 0;
-
     color: var(--text-primary);
-
     font-size: 1.15rem;
-
     font-weight: 600;
-
     line-height: 1.4;
 }
 
-
-/* =========================
-   TEXTO
-========================= */
+/* Texto de tarjeta */
 
 .about-card p {
     margin: 10px 0 0;
-
     color: var(--text-secondary);
-
     font-size: 0.85rem;
-
     line-height: 1.5;
 }
 
-
-/* =========================
-   AÑO
-========================= */
+/* Año */
 
 .about-card-year {
     display: inline-block;
-
     margin-top: 18px;
-
     color: var(--text-muted);
-
     font-size: 0.75rem;
-
     font-weight: 600;
 }
 
-
 /* =========================
-   RESPONSIVE
+   RESPONSIVE: TABLETS
 ========================= */
 
 @media (max-width: 900px) {
-
     .about-content {
         grid-template-columns: 1fr;
-
         gap: 50px;
     }
 
@@ -280,23 +264,23 @@
         order: -1;
     }
 
-    .avatar-wrapper {
+    .about-visual .avatar-wrapper {
         width: min(70vw, 360px);
     }
 
     .about-info {
         grid-template-columns: 1fr;
-
         max-width: 700px;
-
         margin-left: auto;
         margin-right: auto;
     }
 }
 
+/* =========================
+   RESPONSIVE: MÓVILES
+========================= */
 
 @media (max-width: 600px) {
-
     .about-section {
         padding: 90px 20px;
     }
@@ -306,22 +290,43 @@
     }
 
     .about-header h2 {
-        font-size: clamp(
-            2.3rem,
-            11vw,
-            3.2rem
-        );
+        font-size: clamp(2.3rem, 11vw, 3.2rem);
     }
 
     .about-description p {
         font-size: 0.95rem;
     }
 
-    .avatar-wrapper {
+    .about-visual .avatar-wrapper {
         width: min(80vw, 300px);
     }
 
     .about-card {
         padding: 22px;
     }
+}
+
+/* =========================
+   ACCESIBILIDAD
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .about-visual .avatar-wrapper,
+    .about-visual .avatar-wrapper::before {
+        animation: none !important;
+    }
+
+    .about-card,
+    .about-avatar {
+        transition: none;
+    }
+}
+
+.about-visual .avatar-wrapper {
+    animation: avatar-flotacion 2s linear infinite !important;
+}
+
+.about-visual .avatar-wrapper::before {
+    opacity: 1 !important;
+    animation: avatar-halo 2s ease-in-out infinite !important;
 }

@@ -37,3 +37,23 @@ textarea {
     min-height: 100vh;
 }
 
+.portfolio-loading {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.portfolio-visible {
+    visibility: visible;
+    opacity: 1;
+    animation: portfolio-appear 0.35s ease both;
+}
+
+@keyframes portfolio-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
